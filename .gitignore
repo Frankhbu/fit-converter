@@ -1,0 +1,28 @@
+# Build
+target/
+dependency-reduced-pom.xml
+
+# Data (personal health data, never commit)
+input/
+output/
+original_data/
+archive/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# AI assistant workspace
+.joycode/
+
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Archives
+*.tar.gz
+*.zip
