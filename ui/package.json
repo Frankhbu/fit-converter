@@ -1,0 +1,10 @@
+{
+  "name": "fit-converter-ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "华为运动数据 → Garmin FIT 转换器的本地 Web 界面",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

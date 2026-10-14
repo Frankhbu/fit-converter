@@ -1,0 +1,222 @@
+:root {
+  --bg: #f5f6f8;
+  --card: #ffffff;
+  --border: #e2e5ea;
+  --text: #2c3e50;
+  --muted: #7f8c9b;
+  --primary: #2f6fed;
+  --primary-hover: #2458c9;
+  --ok: #1a9d5f;
+  --warn: #d9822b;
+  --err: #d64545;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.subtitle {
+  margin: 4px 0 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.status { font-size: 13px; margin: 0; }
+.status.ok { color: var(--ok); }
+.status.warn { color: var(--warn); }
+
+main {
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.form { display: flex; flex-direction: column; gap: 14px; }
+
+.field label {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.path-row { display: flex; gap: 8px; }
+
+input[type="text"] {
+  flex: 1;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: "SF Mono", Menlo, monospace;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.btn {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: #fff;
+  align-self: flex-start;
+}
+
+.btn.primary:hover:not(:disabled) { background: var(--primary-hover); }
+.btn.primary:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.btn.secondary {
+  background: #eef1f5;
+  color: var(--text);
+}
+
+.btn.secondary:hover { background: #e2e6ec; }
+
+.log pre {
+  margin: 0;
+  padding: 12px;
+  max-height: 320px;
+  overflow-y: auto;
+  background: #1e2228;
+  color: #d6dbe1;
+  border-radius: 8px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.log pre .err { color: #ff8f8f; }
+
+.outputs ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.outputs li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.outputs li:last-child { border-bottom: none; }
+.outputs li.empty { color: var(--muted); justify-content: center; }
+
+.outputs a { color: var(--primary); text-decoration: none; }
+.outputs a:hover { text-decoration: underline; }
+
+.outputs .size { color: var(--muted); font-size: 12px; }
+
+/* 目录选择对话框 */
+.dialog {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.dialog.hidden { display: none; }
+
+.dialog-box {
+  width: 560px;
+  max-width: 92vw;
+  max-height: 78vh;
+  background: var(--card);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dialog-title { font-size: 15px; font-weight: 600; }
+
+.dialog-path {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dialog-path span {
+  flex: 1;
+  font-size: 12px;
+  font-family: "SF Mono", Menlo, monospace;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dialog-list {
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  min-height: 220px;
+  max-height: 42vh;
+  overflow-y: auto;
+}
+
+.dialog-list li {
+  padding: 7px 10px;
+  font-size: 13px;
+  border-radius: 5px;
+  cursor: default;
+}
+
+.dialog-list li.dir { cursor: pointer; }
+.dialog-list li.dir:hover { background: #eef3ff; }
+.dialog-list li.file { color: var(--muted); }
+.dialog-list li.empty { color: var(--muted); }
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}

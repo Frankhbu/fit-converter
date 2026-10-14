@@ -20,6 +20,9 @@ archive/
 __pycache__/
 *.pyc
 
+# Node
+ui/node_modules/
+
 # macOS
 .DS_Store
 

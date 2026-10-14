@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIT 转换器</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>FIT 转换器</h1>
+    <p class="subtitle">华为运动 JSON → Garmin FIT</p>
+    <p id="jarStatus" class="status">正在检查…</p>
+  </header>
+
+  <main>
+    <section class="form card">
+      <div class="field">
+        <label for="sourceFile">源文件（华为健康导出整包 JSON）</label>
+        <div class="path-row">
+          <input id="sourceFile" type="text" spellcheck="false">
+          <button id="pickFileBtn" type="button" class="btn secondary">浏览…</button>
+        </div>
+        <input id="filePicker" type="file" accept=".json,application/json" hidden>
+      </div>
+      <div class="field">
+        <label for="outputDir">输出目录（FIT）</label>
+        <div class="path-row">
+          <input id="outputDir" type="text" spellcheck="false">
+          <button type="button" class="btn secondary" data-target="outputDir">浏览…</button>
+        </div>
+      </div>
+      <button id="convertBtn" type="button" class="btn primary">开始转换</button>
+    </section>
+
+    <section class="log card">
+      <div class="card-title">转换日志</div>
+      <pre id="log"></pre>
+    </section>
+
+    <section class="outputs card">
+      <div class="card-title">输出文件</div>
+      <ul id="outputs"></ul>
+    </section>
+  </main>
+
+  <div id="dialog" class="dialog hidden">
+    <div class="dialog-box">
+      <div class="dialog-title">选择目录</div>
+      <div class="dialog-path">
+        <button id="goUp" type="button" class="btn secondary" title="上一级">↑</button>
+        <span id="dialogPath"></span>
+      </div>
+      <ul id="dialogList" class="dialog-list"></ul>
+      <div class="dialog-actions">
+        <button id="dialogCancel" type="button" class="btn secondary">取消</button>
+        <button id="dialogOk" type="button" class="btn primary">选择此目录</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
